@@ -67,6 +67,9 @@ code {
   border-radius: 3px;
 }
 
+/* Syntax highlighting: normalize all token styles */
+pre code span { font-weight: normal !important; font-style: normal !important; }
+
 pre {
   background-color: var(--color-code-bg);
   border-radius: 4px;
@@ -88,6 +91,7 @@ blockquote {
   margin: 0 0 1rem;
   padding: 0.5rem 1rem;
   border-left: 4px solid var(--color-blockquote-border);
+  background-color: var(--color-bg);
   color: var(--color-blockquote-text);
 }
 
