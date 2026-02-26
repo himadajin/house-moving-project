@@ -13,12 +13,22 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      PANDOC_VERSION: "3.9"
     steps:
       - uses: actions/checkout@v4
 
+      - name: Cache pandoc
+        id: cache-pandoc
+        uses: actions/cache@v4
+        with:
+          path: |
+            /usr/bin/pandoc
+            /usr/share/pandoc
+          key: pandoc-${{ env.PANDOC_VERSION }}-${{ runner.os }}
+
       - name: Install pandoc
-        env:
-          PANDOC_VERSION: "3.9"
+        if: steps.cache-pandoc.outputs.cache-hit != 'true'
         run: |
           curl -fsSL "https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb" -o pandoc.deb
           sudo dpkg -i pandoc.deb
