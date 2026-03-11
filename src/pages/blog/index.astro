@@ -1,6 +1,5 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import FormattedDate from "../../components/FormattedDate.astro";
 import { getCollection } from "astro:content";
 import { SITE_TITLE } from "../../consts";
 
@@ -21,9 +20,6 @@ const posts = (await getCollection("blog")).sort(
             <li>
               <a href={`/house-moving-project/blog/${post.id}/`}>
                 <h4 class="title">{post.data.title}</h4>
-                <p class="date">
-                  <FormattedDate date={post.data.pubDate} />
-                </p>
               </a>
             </li>
           ))}
@@ -65,10 +61,5 @@ const posts = (await getCollection("blog")).sort(
     margin: 0 0 0.25rem 0;
     color: rgb(var(--black));
     font-size: 1.25rem;
-  }
-  .date {
-    margin: 0;
-    color: rgb(var(--gray));
-    font-size: 0.875rem;
   }
 </style>

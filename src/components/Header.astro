@@ -1,18 +1,11 @@
 ---
-import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "../consts";
 ---
 
 <header>
-  <nav>
-    <div class="title">
-      <a href="/house-moving-project/">{SITE_TITLE}</a>
-    </div>
-    <div class="internal-links">
-      <HeaderLink href="/house-moving-project/">ホーム</HeaderLink>
-      <HeaderLink href="/house-moving-project/blog/">ブログ</HeaderLink>
-    </div>
-  </nav>
+  <div class="title">
+    {SITE_TITLE}
+  </div>
 </header>
 
 <style>
@@ -22,32 +15,12 @@ import { SITE_TITLE } from "../consts";
     background: white;
     box-shadow: 0 2px 8px rgba(var(--black), 5%);
   }
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 0.5rem 0;
-  }
-  nav a {
-    padding: 0.5em 0.5em;
-    color: rgb(var(--black));
-    border-bottom: 4px solid transparent;
-    text-decoration: none;
-  }
-  nav a.active {
-    text-decoration: none;
-    border-bottom-color: var(--accent);
-  }
   .title {
-    font-weight: bold;
-  }
-  .title a {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0.75rem 0;
     font-size: 1.25rem;
-  }
-  .internal-links {
-    display: flex;
-    gap: 0.5rem;
+    font-weight: bold;
+    color: rgb(var(--black));
   }
 </style>
