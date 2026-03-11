@@ -1,0 +1,116 @@
+@import "simpledotcss/simple.css";
+
+:root {
+  color-scheme: light;
+  --sans-font:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  --mono-font:
+    "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+    monospace;
+  --bg: #ffffff;
+  --accent-bg: #f7f9fc;
+  --text: #303030;
+  --text-light: #737278;
+  --border: #dde1e7;
+  --accent: #1068bf;
+  --accent-hover: #0a4e96;
+  --accent-text: #ffffff;
+  --code: #c0341d;
+  --preformatted: #303030;
+  --standard-border-radius: 4px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: light;
+    --bg: #ffffff;
+    --accent-bg: #f7f9fc;
+    --text: #303030;
+    --text-light: #737278;
+    --border: #dde1e7;
+    --accent: #1068bf;
+    --accent-hover: #0a4e96;
+    --accent-text: #ffffff;
+    --code: #c0341d;
+    --preformatted: #303030;
+  }
+
+  img,
+  video {
+    opacity: 1;
+  }
+}
+
+body {
+  font-size: 1rem;
+  line-height: 1.6;
+  grid-template-columns: 1fr min(860px, calc(100% - 2rem)) 1fr;
+}
+
+main {
+  padding: 2rem 0;
+}
+
+h1,
+h2 {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.2em;
+}
+
+h1 {
+  font-size: 2rem;
+  border-bottom-width: 2px;
+  padding-bottom: 0.3em;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-size: 1.1rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 0.875rem;
+}
+
+p,
+ul,
+ol {
+  margin: 0 0 1rem;
+}
+
+ul,
+ol {
+  padding-left: 1.5rem;
+}
+
+li > ul,
+li > ol {
+  margin-bottom: 0;
+}
+
+input[type="checkbox"] {
+  appearance: auto;
+  -webkit-appearance: checkbox;
+  -moz-appearance: checkbox;
+  margin-right: 0.45em;
+}
+
+li.task-list-item {
+  list-style: none;
+}
+
+li.task-list-item > input[type="checkbox"] {
+  margin-left: -1.5rem;
+}

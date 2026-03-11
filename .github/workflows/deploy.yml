@@ -12,30 +12,45 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  check:
     runs-on: ubuntu-latest
-    env:
-      PANDOC_VERSION: "3.9"
     steps:
       - uses: actions/checkout@v4
 
-      - name: Cache pandoc
-        id: cache-pandoc
-        uses: actions/cache@v4
+      - uses: actions/setup-node@v4
         with:
-          path: |
-            /usr/bin/pandoc
-            /usr/share/pandoc
-          key: pandoc-${{ env.PANDOC_VERSION }}-${{ runner.os }}
+          node-version: 24
+          cache: npm
 
-      - name: Install pandoc
-        if: steps.cache-pandoc.outputs.cache-hit != 'true'
-        run: |
-          curl -fsSL "https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb" -o pandoc.deb
-          sudo dpkg -i pandoc.deb
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check formatting
+        run: npm run format:check
+
+      - name: Lint and type-check
+        run: npm run lint
+
+  build:
+    needs: check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
 
       - name: Build
-        run: make
+        run: npm run build
+
+      - name: Configure Pages
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
