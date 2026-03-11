@@ -1,7 +1,5 @@
 ---
 title: "引っ越し"
-author: ""
-date: ""
 lang: ja
 ---
 
