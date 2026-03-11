@@ -1,0 +1,16 @@
+---
+import { getEntry, render } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const entry = await getEntry("pages", "internet-research");
+
+if (!entry) {
+  throw new Error("Missing content entry: pages/internet-research");
+}
+
+const { Content } = await render(entry);
+---
+
+<BaseLayout title={entry.data.title}>
+  <Content />
+</BaseLayout>
