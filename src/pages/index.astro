@@ -1,6 +1,7 @@
 ---
 import { getEntry, render } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
 const entry = await getEntry("pages", "index");
 
@@ -11,6 +12,6 @@ if (!entry) {
 const { Content } = await render(entry);
 ---
 
-<BaseLayout title={entry.data.title} lang={entry.data.lang}>
+<BaseLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <Content />
 </BaseLayout>

@@ -1,0 +1,26 @@
+---
+import { SITE_TITLE } from "../consts";
+---
+
+<header>
+  <div class="title">
+    {SITE_TITLE}
+  </div>
+</header>
+
+<style>
+  header {
+    margin: 0;
+    padding: 0 1em;
+    background: white;
+    box-shadow: 0 2px 8px rgba(var(--black), 5%);
+  }
+  .title {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0.75rem 0;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: rgb(var(--black));
+  }
+</style>

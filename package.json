@@ -13,9 +13,11 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.7",
+    "@astrojs/mdx": "^5.0.0",
+    "@astrojs/rss": "^4.0.0",
+    "@astrojs/sitemap": "^3.0.0",
     "astro": "^6.0.2",
     "remark-gfm": "^4.0.1",
-    "simpledotcss": "^2.3.7",
     "typescript": "^5.9.3"
   },
   "devDependencies": {
