@@ -73,7 +73,7 @@ lang: ja
 ## 手続き
 
 - インターネット
-  - [ ] 光回線の調査
+  - [x] 光回線の調査
   - [ ] 光回線の契約
 - 電気
   - [x] 契約
@@ -92,3 +92,35 @@ lang: ja
   - [ ] 郵便局の送付先住所変更
   - [ ] 運転免許証の住所変更
   - [ ] マイナンバーの住所変更
+
+## 光回線の調査
+
+JCOMに不信感があるので、自身で光回線を契約することにした。
+
+光回線の業者を選択する際の観点は以下の通り
+
+- 開栓速度が1Gbps以上であること
+- 部屋の光コンセントを使用すること
+  - 部屋の光コンセントにはNTTのロゴが書いてあったため、NTT系が無難であると考える
+- 安くなる根拠がポイントカード、クレジットカードによる還元でないこと
+
+NTT系の光回線を選ぶ場合は、ドコモ光がサポートするプロバイダから選択するのが良さそうである。
+
+関連するURLは以下の通りである。
+
+- [ドコモ光（光インターネット回線サービス）](https://www.docomo.ne.jp/internet/hikari/)
+- [ドコモ光のプロバイダ](https://www.docomo.ne.jp/internet/hikari/provider_list/)
+
+ドコモ光の回線であれば使用する物理的な光回線網は同一であるため、
+プロバイダごとに極端な速度差は現れないと考える。
+しかし、アップロード速度や混雑時の安定性はプロバイダによる差が出るため、
+あらかじめ評判を調べる必要がある。
+
+プロバイダの候補は以下の通りである。
+
+- [ドコモ光 × OCN インターネット｜OCN](https://service.ocn.ne.jp/hikari/ocn-internet/)
+- [ドコモ光 × GMOとくとくBB｜GMOとくとくBB](https://gmobb.jp/service/docomo_hikari/)
+- [GMOとくとくBB光｜GMOとくとくBB](https://gmobb.jp/service/gmohikari/)
+- [BIGLOBE光｜BIGLOBE](https://join.biglobe.ne.jp/ftth/hikari/)
+- [AsahiNet 光｜ASAHIネット](https://asahi-net.jp/service/ftth/hikari/)
+- [@nifty光｜@nifty](https://setsuzoku.nifty.com/niftyhikari/)
