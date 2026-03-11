@@ -1,0 +1,74 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import FormattedDate from "../../components/FormattedDate.astro";
+import { getCollection } from "astro:content";
+import { SITE_TITLE } from "../../consts";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<BaseLayout title={`ブログ | ${SITE_TITLE}`} description="ブログ記事一覧">
+  <section>
+    <h1>ブログ</h1>
+    {
+      posts.length === 0 ? (
+        <p>記事はまだありません。</p>
+      ) : (
+        <ul>
+          {posts.map((post) => (
+            <li>
+              <a href={`/house-moving-project/blog/${post.id}/`}>
+                <h4 class="title">{post.data.title}</h4>
+                <p class="date">
+                  <FormattedDate date={post.data.pubDate} />
+                </p>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </section>
+</BaseLayout>
+
+<style>
+  section {
+    padding: 0;
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  ul li {
+    width: 100%;
+  }
+  ul li * {
+    text-decoration: none;
+    transition: 0.2s ease;
+  }
+  ul li a {
+    display: block;
+    padding: 1rem;
+    border: 1px solid rgb(var(--gray-light));
+    border-radius: 8px;
+  }
+  ul li a:hover {
+    border-color: var(--accent);
+  }
+  .title {
+    margin: 0 0 0.25rem 0;
+    color: rgb(var(--black));
+    font-size: 1.25rem;
+  }
+  .date {
+    margin: 0;
+    color: rgb(var(--gray));
+    font-size: 0.875rem;
+  }
+</style>
